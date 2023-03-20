@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 /**
- * main - Entry point
+ * main - prints a-z in lowercase
  * Return: Always 0 (Success)
  */
 int main(void)
