@@ -6,7 +6,7 @@
  */
 void print_times_table(int n)
 {
-int row, col, product;
+int row, column, product;
 if (n >= 0 && n <= 15)
 {
 for (row = 0; row <= n; row++)
@@ -16,7 +16,7 @@ for (product = 1; product <= n; product++)
 {
 _putchar(',');
 _putchar(' ');
-product = row * col;
+product = (row * column);
 if (product <= 99)
 _putchar(' ');
 if (product <= 9)
