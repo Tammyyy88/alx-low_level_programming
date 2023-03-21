@@ -12,7 +12,7 @@ if (n >= 0 && n <= 15)
 for (row = 0; row <= n; row++)
 {
 _putchar('0');
-for (product = 1; product <= n; product++)
+for (column = 1; column <= n; column++)
 {
 _putchar(',');
 _putchar(' ');
