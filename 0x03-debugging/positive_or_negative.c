@@ -12,5 +12,5 @@ if (i > 0)
 printf("%d is positive\n", i);
 else
 printf("%d is negative\n", i);
-return 0;
+return (0);
 }
