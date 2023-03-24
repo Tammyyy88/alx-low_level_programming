@@ -1,1 +1,1 @@
-a low level programming lesson
+Contains C programs and scripts. Learning about C programming language
