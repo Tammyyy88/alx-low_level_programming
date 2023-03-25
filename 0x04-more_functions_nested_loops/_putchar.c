@@ -3,8 +3,8 @@
 
 /**
  * _putchar - writes character c to stdout
- * @c: character to print
- * Return: On success 1.
+ * @c: The character to print
+ * Return: 1 (Success)
  */
 int _putchar(char c)
 {
