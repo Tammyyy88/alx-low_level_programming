@@ -1,6 +1,6 @@
 #include "main.h"
 /**
-* _atoi - changes ascii to int
+* _atoi - changes string to int
 * @s: the string to be changed
 * Return: the converted int
 */
@@ -31,4 +31,5 @@ break;
 f = 0;
 }
 i++;
+}
 }
