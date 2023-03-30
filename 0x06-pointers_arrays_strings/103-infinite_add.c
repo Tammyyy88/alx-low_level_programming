@@ -1,41 +1,73 @@
-#include "main.h"
 #include <stdio.h>
+#include <string.h>
+#include "main.h"
 /**
- * infinite_add - adds two numbers
- * @n1: first number
- * @n2: second number
- * @r: buffer to store the result
- * @size_r: buffer size
- * Return: pointer to the result or 0
- * if result can't be stored in r
+ * rev_string - reverses a string
+ * @n: pointer to the string
+ * Return: 0
+ */
+void rev_string(char *n)
+{
+int i = 0;
+int j = 0;
+char temp;
+while (*(n + i) != '\0')
+{
+i++;
+}
+i--;
+for (j = 0; j < i; j++, i--)
+{
+temp = *(n + j);
+*(n + j) = *(n + i);
+*(n + i) = temp;
+}
+}
+/**
+ * infinite_add - Adds two numbers stored as strings.
+ * @n1: A pointer to the first number as a string.
+ * @n2: A pointer to the second number as a string.
+ * @r: A buffer to store the result as a string.
+ * @size_r: The size of the buffer.
+ * Return: A pointer to the result string on success, or 0 on error.
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-int i, j, k, len1 = 0, len2 = 0, carry = 0, sum = 0;
-while (n1[len1])
-len1++;
-while (n2[len2])
-len2++;
-if (len1 + 1 > size_r || len2 + 1 > size_r)
+int overflow = 0, i = 0, j = 0, digits = 0;
+int val1 = 0, val2 = 0, temp_tot = 0;
+while (*(n1 + i) != '\0')
+i++;
+while (*(n2 + j) != '\0')
+j++;
+i--;
+j--;
+if (j >= size_r || i >= size_r)
 return (0);
-for (i = len1 - 1, j = len2 - 1, k = 0; i >= 0 || j >= 0
-|| carry; i--, j--, k++)
+while (j >= 0 || i >= 0 || overflow == 1)
 {
-sum = carry;
-if (i >= 0)
-sum += n1[i] - '0';
-if (j >= 0)
-sum += n2[j] - '0';
-carry = sum / 10;
-sum %= 10;
-r[k] = sum + '0';
+if (i < 0)
+val1 = 0;
+else
+val1 = *(n1 + i)-'0';
+if (j < 0)
+val2 = 0;
+else
+val2 = *(n2 + j)-'0';
+temp_tot = val1 + val2 + overflow;
+if (temp_tot >= 10)
+overflow = 1;
+else
+overflow = 0;
+if (digits >= (size_r - 1))
+return (0);
+*(r + digits) = (temp_tot % 10) + '0';
+digits++;
+j--;
+i--;
 }
-for (i = 0, j = k - 1; i < j; i++, j--)
-{
-char tmp = r[i];
-r[i] = r[j];
-r[j] = tmp;
-}
-r[k] = '\0';
+if (digits == size_r)
+return (0);
+*(r + digits) = '\0';
+rev_string(r);
 return (r);
 }
