@@ -17,7 +17,7 @@ return (NULL);
 new_node = malloc(sizeof(list_t));
 if (new_node == NULL)
 return (NULL);
-len = strlen(str); 
+len = strlen(str);
 new_node->str = strdup(str);
 new_node->len = len;
 new_node->next = NULL;
