@@ -74,7 +74,9 @@ long alph[] = {
 0x74767a5835737956, 0x2b554c59634a474f, 0x71786636576a6d34,
 0x723161513346655a, 0x6b756f494b646850 };
 (void) argc;
-for (len = 0; argv[1][len]; len++);
+for (len = 0)
+argv[1][len];
+len++;
 keygen[0] = ((char *)alph)[(len ^ 59) & 63];
 ch = vch = 0;
 while (vch < len)
